@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>密码保护</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+  <!-- 密码输入区域 -->
+  <div id="passwordArea" class="text-center">
+    <p class="text-lg mb-4">请输入密码（你的生日月/日）农历：</p>
+    <input type="password" id="password" class="px-4 py-2 border border-gray-300 rounded mb-4" placeholder="例如：0101">
+    <button onclick="checkPassword()" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
+      确认
+    </button>
+  </div>
+
+  <!-- 受保护内容（初始隐藏） -->
+  <div id="content" class="hidden text-center">
+    <p> 我知道你不想收到关于我的任何信息，我很抱歉。我想着最后和你打个电话说几句想说的，然后将剩下的所有的话都留着等考完试再说，可是你没有给我这个机会。
+      分开这些时间我想了很多很多，每次都是有零碎的几句话想说，可能一会找你一下你感到很烦躁，这也打扰你每天学习的节奏，对此我很抱歉。我并不是想着想打扰你，我知道你的精力有限，想着好好学习的阶段遇到
+      谈恋爱吵架这件事，肯定是对学业有影响，这点我也同意我也感同身受，肯定嘛，学习肯定大于恋爱，这我也不可否认，我每次找你解决咱俩也是说着说着就吵起来了，导致很多话我也没机会说，这也没有怪你的意思，我
+      可能有点磨叽，你又有点着急每次都没收到点上你跑了我也憋着没说，后来烦你的次数多了，你也不想在这方面纠缠。俗话说好聚好散，好聚
+      做到了，但是好散没有，其实我肯定是不想散的，至少毕业结束之前甚至很长一段时间我都会想着能不能合。我知道你这是第一次谈恋爱，你很多都不会，不知道怎么相处怎么去解决，我也算是吧，要么就是异地要么就是
+      谈的快分的快，所以我想着和你好好谈，但是我是没有做到，至少不应该说出那些不理性的话。你也是，咱俩都有一个共性，在恋爱上很自卑，你喜欢内耗，将所有的事憋在心里，伤心难过都不愿意和我说，每次我对你买点
+      东西或者转钱给你，你都想着法回报我一下，我是很感动，但我更希望你把钱花在自己身上，这也是我一个毛病吧。好应该是相互的，交流也应该是相互的，我更想你能和我多交流交流，恋爱应该是朋友之上的关系，无话不说的朋友。
+      这段时间我也认识到字自己做的不对的所有地方了，想的很多很多，在这我和你说声对不起，这段时间甚至是以后得时间，这些坏毛病肯定是改了的，再坏不能对家人朋友恋人说狠话不理性。你很好，我能接受你所有的情绪，
+      我只是想要你和我能多交流交流一下，话少了矛盾也多了，在一起的时间少了，矛盾也多了。我喜欢你，很喜欢你，不是你说的还是谈少了，也不是你说的因为是你提的所以我才这样一直纠缠（可能也不是你提的那天），我想珍惜这段
+      感情，毕竟从一开始就想着是最后一段好好的奔着结婚去，我对你的伤害是我做的错事我也很后悔，我对不起你，我也希望有个改过的机会</p>
+    <p> 我本来想着考完试找你见一面说的，然后我怕你又不知道，所以我想着和你打最后个电话交流一下，说几句，希望考完试能见一面，咱俩好好聊聊，虽然我肯定希望和你像以前一样，但我也并不会强求你，我只希望我们能见一见，
+      聊一聊，哪怕散了也见个面吃个散伙饭吧。在考试之前我也不会打扰你哈，我只是想告诉你一声，你也希望你不要拒绝，如果你收到了，可以让她转告我，或者你收到就行，和她回复就行，或者如果可以的话通个电话聊两分钟说说你的看法。
+    </p>
+    <p>
+      希望你好好学吧，加油，我一直相信你的！
+    </p>
+
+  </div>
+
+  <script>
+    // 设置正确的密码（月/日，例如10月5日为1005）
+    const correctPassword = "0501"; // 请修改为实际生日
+
+    // 检查密码
+    function checkPassword() {
+      const input = document.getElementById('password').value;
+      if (input === correctPassword) {
+        document.getElementById('passwordArea').classList.add('hidden');
+        document.getElementById('content').classList.remove('hidden');
+      } else {
+        alert('密码错误，请重试');
+      }
+    }
+
+    // 支持回车键提交
+    document.getElementById('password').addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        checkPassword();
+      }
+    });
+  </script>
+</body>
+
+</html>
